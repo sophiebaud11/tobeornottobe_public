@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans|Vollkorn">
     <script src="https://unpkg.com/intersection-observer"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
     <script src="script.js" charset="utf-8"></script>
     <title></title>
   </head>
@@ -41,6 +42,16 @@
       <p class="generaltext">Let’s get to know these performances better.  Three of them (Essiedu, Cumberbatch, and Scott) are stage performances, three are audio recordings (Hiddleston, Glover, and Lester), and two are film scenes (Hawke and Branagh).</p>
       <img id="performance_circles" src="performance_circles.png" alt="actors_images">
     </section>
-
+    <section class="demo" id="demo1">
+      <h1 class="titletext">The First Line</h1>
+      <p class="generaltext">What can we actually learn about the soliloquy from these performances?  Let’s demo this analysis using the soliloquy’s incredibly famous first line:</p>
+      <img id="first_line" src="first_line.png" alt="first_line">
+    </section>
+    <section class="demo" id="demo2">
+      <svg id="duration_chart">
+      </svg>
+      <!-- <iframe id="first_line_duration" width="100%" height="584" frameborder="0"
+  src="https://observablehq.com/embed/@sophiebaud11/secondsperfirstline?cell=chart"></iframe> -->
+    </section>
   </body>
 </html>
