@@ -52,6 +52,10 @@ section {
   font-size: 20px;
   font-family: PT Sans;
   text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .titletext {
@@ -110,11 +114,26 @@ section {
   position: absolute;
   border-top: 30px solid transparent;
 }
-#intro {
+#intropage1 {
   top: 100vh;
   margin-top: 10%;
 }
+#intropage1 .generaltext {
+  padding: 10px;
+}
 #intro_circles {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  display: block;
+}
+#intropage2 {
+  top: 200vh;
+}
+#performance_circles {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
