@@ -264,6 +264,9 @@ section {
 }
 #speed3 .generaltext2 {
   padding-top: 3%;
+  position: sticky;
+  top: 5%;
+  background-color: white;
 }
 #pauses3 {
   display: block;
@@ -280,4 +283,7 @@ section {
 }
 #speed4 .generaltext2 {
   padding-top: 3%;
+  position: sticky;
+  top: 5%;
+  background-color: white;
 }
