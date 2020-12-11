@@ -10,7 +10,7 @@ var data = d3.csv("/first_line_duration@1.csv", function(data) {
   var name = data[i].actor;
   var value = data[i].duration;
   value.sort(function(a, b){return b-a});
-})
+});
 
 var x = d3.scaleBand()
   .domain(d3.range(data.length))
