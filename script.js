@@ -6,7 +6,11 @@ var height = 500;
 
 var margin = ({top: 30, right: 0, bottom: 30, left: 40});
 
-var data = Object.assign(d3.csvParse(await FileAttachment("first_line_duration@1.csv").text(), ({actor, duration}) => ({name: actor, value: +duration})).sort((a, b) => d3.descending(a.value, b.value)));
+var data = d3.csv("/first_line_duration@1.csv", function(data) {
+  var name = data[i].actor;
+  var value = data[i].duration;
+  value.sort(function(a, b){return b-a});
+})
 
 var x = d3.scaleBand()
   .domain(d3.range(data.length))

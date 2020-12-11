@@ -62,8 +62,17 @@ section {
   margin-top: 10px;
 }
 #title .titletext {
+  margin-top: 20%;
+  margin-bottom: 0%;
+}
+.titlepagetext {
+  font-family: Vollkorn;
+  text-align: center;
+  font-size: 40px;
+  color: black;
   margin-top: 25%;
   margin-bottom: 0%;
+
 }
 .titletext {
   font-family: Vollkorn;
@@ -71,6 +80,10 @@ section {
   font-size: 40px;
   color: black;
   margin-top: 5%;
+  position: sticky;
+  z-index: 1;
+  background-color: white;
+  top:5vh;
 }
 
 .purple {
@@ -115,13 +128,19 @@ section {
   bottom: 0vh;
   right: 0vh;
   position: absolute;
-  border-top: 30px solid transparent;
+  border-top: 300px solid transparent;
 }
 #intropage1 {
   top: 100vh;
   z-index: 0;
   position: absolute;
 }
+/* #intropage1 .titletext {
+  position: sticky;
+  z-index: 1;
+  background-color: white;
+  top:5vh;
+} */
 #intro_circles {
   margin-left: auto;
   margin-right: auto;
@@ -133,9 +152,14 @@ section {
   z-index: 0;
   position: absolute;
 }
-#intropage2 .titletext {
+/* #intropage2 .titletext {
   margin-bottom: 0;
-}
+  position: sticky;
+  z-index: 1;
+  background-color: white;
+  top:5vh;
+
+} */
 #performance_circles {
   display: block;
   margin-left: auto;
@@ -148,11 +172,17 @@ section {
   z-index: 0;
   position: absolute;
 }
+/* #demo1 .titletext {
+  position: sticky;
+  z-index: 1;
+  background-color: white;
+  top:5vh;
+} */
 #first_line {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 70%;
   padding: 5px;
 }
 #demo2 {
