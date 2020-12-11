@@ -33,10 +33,11 @@ var cScale = d3.scaleSequential()
 .interpolator(d3.interpolateViridis)
 
 var height = 500;
+var width = 960;
 
 var margin = ({top: 30, right: 0, bottom: 30, left: 40});
 
-var data = d3.csv("/first_line_duration@1.csv", function(data) {
+var data = d3.csv("./first_line_duration@1.csv", function(data) {
   var name = data[i].actor;
   var value = data[i].duration;
   value.sort(function(a, b){return b-a});
