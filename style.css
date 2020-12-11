@@ -1,7 +1,7 @@
 body {
   min-width: 100vw;
   margin: 0;
-  height: 500vh;
+  height: 1000vh;
 }
 section {
   width: 100%;
@@ -80,9 +80,25 @@ section {
   background-color: white;
   top:5vh;
 }
-
+.titletext2 {
+  font-family: Vollkorn;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  background-color: white;
+}
 .purple {
   color: #912F56;
+}
+.generaltext2 {
+  font-size: 20px;
+  font-family: PT Sans;
+  text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6vh;
+
 }
 #corner0 {
   width: 0;
@@ -177,11 +193,91 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 60%;
   padding: 5px;
 }
 #demo2 {
   top: 400vh;
   z-index: 0;
   position: absolute;
+}
+.lefttext {
+  left: 0;
+  float: left;
+  width: 45%;
+  height: 85vh;
+  overflow-y: scroll;
+}
+.demo .generaltext {
+  font-size: 17px;
+
+}
+.rightgraph {
+  float: right;
+  position: sticky;
+  top: 25%;
+  right: 5px;
+  width: 55%;
+}
+#demo3 {
+  top: 500vh;
+  z-index: 0;
+  position: absolute;
+}
+#speed1 {
+  top: 600vh;
+  z-index: 0;
+  position: absolute;
+
+}
+.centergraph {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 5px;
+}
+#speed2 {
+  top: 700vh;
+  z-index: 0;
+  font-weight: 700;
+  position: absolute;
+}
+#pauses {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 75%
+}
+#pauses2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  padding: 5%;
+}
+#speed3 {
+  top: 800vh;
+  z-index: 0;
+  font-weight: 700;
+  position: absolute;
+}
+#speed3 .generaltext2 {
+  padding-top: 3%;
+}
+#pauses3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  padding: 5%;
+}
+#speed4 {
+  top: 900vh;
+  z-index: 0;
+  font-weight: 700;
+  position: absolute;
+}
+#speed4 .generaltext2 {
+  padding-top: 3%;
 }

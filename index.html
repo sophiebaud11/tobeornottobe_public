@@ -48,10 +48,61 @@
       <img id="first_line" src="first_line.png" alt="first_line">
     </section>
     <section class="demo" id="demo2">
-      <svg id="duration_chart">
-      </svg>
-      <!-- <iframe id="first_line_duration" width="100%" height="584" frameborder="0"
-  src="https://observablehq.com/embed/@sophiebaud11/secondsperfirstline?cell=chart"></iframe> -->
+      <h1 class="titletext">The First Line</h1>
+      <div class="lefttext">
+        <h2 class="titletext2">Speed</h2>
+        <p class="generaltext">This graph shows how many seconds each actor spends on the first line. Note the range of this data: Andrew Scott spends around 11 seconds on the first ten words, but Devon Glover,  Ethan Hawke, and Tom Hiddleston all spend around 3.</p>
+        <p class="generaltext">From this, we can learn something about each actor's interpretations of the opening question, which drives the rest of the soliloquy.</p>
+        <p class="generaltext">Those who give it more time emphasize the challenge of solving the question, because they must take pauses or draw out words, which creates a sense of measured, slow contemplation.</p>
+        <p class="generaltext">However, the actors who spend less time speaking the opening lines avoid pauses or drawn-out words, which has the effect of instilling urgency and building momentum in the opening line.</p>
+      </div>
+      <div class="rightgraph">
+        <svg id="duration_chart">
+        </svg>
+      </div>
+      <script>
+      generateDurationGraph()
+      </script>
+    </section>
+    <section class="demo" id="demo3">
+      <h1 class="titletext">The First Line</h1>
+      <div class="lefttext">
+        <h2 class="titletext2">Volume</h2>
+        <p class="generaltext">This graph visualizes the volume of each actor’s audio file during the first 10 words. Most actors are clustered in volume around the -35 to -45 mean RMS level point, but there are two primary outliers: Branagh and Glover.</p>
+        <p class="generaltext">Glover is louder than the rest in large part because of the medium of his performance (music, which requires a backing track that increases the volume); conversely, Branagh also takes advantage of his cinematic medium, speaking the first line very quietly. He can do this because he need not worry about projecting his voice across a theater like Scott or Essiedu—this allows him to practically whisper the first line, emphasizing its introspective quality.</p>
+        <p class="generaltext">Also interesting is the dip in Hiddleston’s volume around the word “that”—this indicates that he took a long pause before saying the last four words that registered as near silence in our analysis of the audio data.</p>
+      </div>
+      <div class="rightgraph">
+        <svg id="volume_chart">
+        </svg>
+      </div>
+      <script>
+        generateVolumeGraph()
+      </script>
+    </section>
+    <section class="speed" id="speed1">
+      <h1 class="titletext">Speed</h1>
+      <p class="generaltext2">One key piece of data we get from analyzing the audio performances is timestamps: on which second does each word fall?</p>
+      <p class="generaltext2">From this, we can learn quite a lot. One revealing metric is <span class="purple">pause lengths</span>—which actor takes the longest pause, and where does he take them?</p>
+      <div class="centergraph">
+        <svg id="longest_pause">
+        </svg>
+        <script>
+          generateLongestPause()
+        </script>
+      </div>
+    </section>
+    <section class="speed" id="speed2">
+      <p class="generaltext2">Let’s break this data down. Most of the actors take their longest pause (or one of their longest pauses) around the same lines.</p>
+      <img id="pauses" src="pauses1.svg" alt="pauses_in_speech">
+    </section>
+    <section class="speed" id="speed3">
+      <p class="generaltext2">A closer look at these pauses reveals their effects on how the actors interpret certain lines.</p>
+      <img id="pauses2" src="pauses2.svg" alt="pauses_closer_look">
+    </section>
+    <section class="speed" id="speed4">
+      <p class="generaltext2">Onto the next section...</p>
+      <img id="pauses3" src="pauses3.svg" alt="pauses_closer_look">
     </section>
   </body>
 </html>
