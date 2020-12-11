@@ -1,3 +1,33 @@
+window.onscroll = function() {
+  growShrinkCorners()
+};
+
+function growShrinkCorners() {
+  var corners = document.getElementsByClassName("corner")
+  var pageHeight = window.innerHeight;
+
+  var scrollPercent = (pageHeight - window.scrollY)/pageHeight;
+
+  Array.prototype.forEach.call(corners, function(corner) {
+    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+      if (corner.id == "corner0" | corner.id == "corner2") {
+        corner.style.borderWidth = scrollPercent*250;              }
+      else {
+        corner.style.borderWidth = 50 + scrollPercent*250;
+      }
+
+    } else {
+      if (corner.id == "corner0" | corner.id == "corner2") {
+        corner.style.borderWidth = '250px';
+      }
+      else {
+        corner.style.borderWidth = '300px';
+
+      }
+    }
+  });
+}
+
 var cScale = d3.scaleSequential()
 .domain([11, 4])
 .interpolator(d3.interpolateViridis)
