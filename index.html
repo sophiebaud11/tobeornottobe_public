@@ -1,3 +1,4 @@
+ <!-- at the end, go thru all of the alts and make sure they're actually descriptive -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,14 +13,15 @@
   </head>
   <body>
     <ul id="nav">
-      <li><a href="#">introduction</a></li>
-      <li><a href="#">demo</a></li>
-      <li><a href="#">speed</a></li>
-      <li><a href="#">volume</a></li>
-      <li><a href="#">conclusions</a></li>
-      <li><a href="#">methods</a></li>
+      <li><a href="#introduction" id="introlink">introduction</a></li>
+      <li><a href="#firstline_demo" id="demolink">demo</a></li>
+      <li><a href="#speed_analysis" id="speedlink">speed</a></li>
+      <li><a href="#volume_analysis" id="volumelink">volume</a></li>
+      <li><a href="#conclusions" id="conclusionslink">conclusions</a></li>
+      <li><a href="#methods" id="methodslink">methods</a></li>
     </ul>
-    <section id="title">
+    <a name="title">
+    <section id="title" >
       <div id="corners1">
         <svg class="corner" id="corner1"></svg>
         <svg class="corner" id="corner0"></svg>
@@ -31,7 +33,9 @@
         <svg class="corner" id="corner2"></svg>
       </div>
     </section>
-    <section class="intro" id="intropage1">
+    </a>
+    <section class="intro" name="intro" id="intropage1">
+      <a id="introduction">
       <h1 class="titletext">The Data</h1>
       <p class="generaltext">We analyzed the audio of 8 performances of Hamlet’s Act III Scene I soliloquy.</p>
       <img id="intro_circles" src="intro_circles.png" alt="actors_images">
@@ -42,7 +46,9 @@
       <p class="generaltext">Let’s get to know these performances better.  Three of them (Essiedu, Cumberbatch, and Scott) are stage performances, three are audio recordings (Hiddleston, Glover, and Lester), and two are film scenes (Hawke and Branagh).</p>
       <img id="performance_circles" src="performance_circles.png" alt="actors_images">
     </section>
-    <section class="demo" id="demo1">
+    </a>
+    <section class="demo" name="demo" id="demo1">
+      <a id="firstline_demo">
       <h1 class="titletext">The First Line</h1>
       <p class="generaltext">What can we actually learn about the soliloquy from these performances?  Let’s demo this analysis using the soliloquy’s incredibly famous first line:</p>
       <img id="first_line" src="first_line.png" alt="first_line">
@@ -79,11 +85,14 @@
       <script>
         generateVolumeGraph()
       </script>
+      </a>
     </section>
-    <section class="speed" id="speed1">
+    <section class="speed" name="speed" id="speed1">
+      <a id="speed_analysis">
       <h1 class="titletext">Speed</h1>
       <p class="generaltext2">One key piece of data we get from analyzing the audio performances is timestamps: on which second does each word fall?</p>
       <p class="generaltext2">From this, we can learn quite a lot. One revealing metric is <span class="purple">pause lengths</span>—which actor takes the longest pause, and where does he take them?</p>
+      <img src="speed_cmt.svg" class="comment" alt="speed graph comment">
       <div class="centergraph">
         <svg id="longest_pause">
         </svg>
@@ -93,16 +102,57 @@
       </div>
     </section>
     <section class="speed" id="speed2">
-      <p class="generaltext2">Let’s break this data down. Most of the actors take their longest pause (or one of their longest pauses) around the same lines.</p>
+      <p class="generaltext3">Let’s break this data down. Most of the actors take their longest pause (or one of their longest pauses) around the same lines.</p>
       <img id="pauses" src="pauses1.svg" alt="pauses_in_speech">
     </section>
     <section class="speed" id="speed3">
-      <p class="generaltext2">A closer look at these pauses reveals their effects on how the actors interpret certain lines.</p>
+      <p class="generaltext3">A closer look at these pauses reveals their effects on how the actors interpret certain lines.</p>
       <img id="pauses2" src="pauses2.svg" alt="pauses_closer_look">
     </section>
     <section class="speed" id="speed4">
-      <p class="generaltext2">Onto the next section...</p>
+      <p class="generaltext3">Onto the next section...</p>
       <img id="pauses3" src="pauses3.svg" alt="pauses_closer_look">
     </section>
+    <section class="speed" id="speed5">
+      <h1 class="titletext">Conclusion</h1>
+      <p class=generaltext>~write conclusion~ and add fun graphics!</p>
+    </section>
+    </a>
+    <section class="volume" id="volume1">
+      <a id="volume_analysis">
+        <h1 class="titletext">Volume</h1>
+        <p class="generaltext">Another data point we can glean from audio files is loudness. The <span class="purple">RMS level</span> approximates loudness,  and the median RMS level for each actor’s performance is visualized below—the lower the number,  the lower the estimated loudness!</p>
+        <p class="generaltext">This can highlight each actors’ medium, the pauses they take, the lines they emphasize with increased loudness,  and more.</p>
+        <img src="volume_cmt.svg" class="comment" alt="volume graph comment">
+        <div class="centergraph">
+          <svg id="volume_chart2">
+            <script>
+              generateMedianRMS()
+            </script>
+          </svg>
+        </div>
+    </section>
+    <section class="volume" id="volume2">
+      <p class="generaltext3">Which line does each actor say the loudest?</p>
+      <img src="loudest_lines.svg" alt="loudest lines graphic" id="loudest_lines">
+    </section>
+    <section class="volume" id="volume3">
+      <h1 class="titletext">Conclusions</h1>
+      <p class="generaltext">write! and add streamgraph</p>
+    </section>
+  </a>
+  <section class="so_what">
+    <a id="conclusions"></a>
+    <div class="corners1">
+      <svg class="corner" id="corner5"></svg>
+      <svg class="corner" id="corner4"></svg>
+    </div>
+    <h1 class="titletext">So What?</h1>
+    <p class="generaltext">write! and add streamgraph</p>
+    <div class="corners2">
+      <svg class="corner" id="corner7"></svg>
+      <svg class="corner" id="corner6"></svg>
+    </div>
+  </section>
   </body>
 </html>

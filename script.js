@@ -7,26 +7,31 @@ function growShrinkCorners() {
   var pageHeight = window.innerHeight;
 
   var scrollPercent = (pageHeight - window.scrollY)/pageHeight;
-
-  Array.prototype.forEach.call(corners, function(corner) {
-    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+  console.log(scrollPercent)
+  if (scrollPercent < 1 && scrollPercent > 0) {
+    Array.prototype.forEach.call(corners, function(corner) {
       if (corner.id == "corner0" | corner.id == "corner2") {
-        corner.style.borderWidth = scrollPercent*250;              }
-      else {
+        corner.style.borderWidth = scrollPercent*250;
+      }
+      else if (corner.id == "corner1" | corner.id == "corner3"){
         corner.style.borderWidth = 50 + scrollPercent*250;
       }
 
-    } else {
-      if (corner.id == "corner0" | corner.id == "corner2") {
-        corner.style.borderWidth = '250px';
+    })};
+  if (scrollPercent < -12 && scrollPercent > -13) {
+    var neg_scrollPercent = 1-(13+((pageHeight - window.scrollY)/pageHeight));
+    console.log("hi")
+    console.log(neg_scrollPercent)
+    Array.prototype.forEach.call(corners, function(corner) {
+      if (corner.id == "corner4" | corner.id == "corner6") {
+        corner.style.borderWidth = neg_scrollPercent*250;
       }
-      else {
-        corner.style.borderWidth = '300px';
+      else if (corner.id == "corner5" | corner.id == "corner7"){
+        corner.style.borderWidth = 50 + neg_scrollPercent*250;
+      }
+    })};
+  };
 
-      }
-    }
-  });
-}
 function generateVolumeGraph() {
   var margin = ({top: 30, right: 40, bottom: 30, left: 40});
   var width = 960 - margin.left - margin.right;
@@ -260,7 +265,7 @@ function generateLongestPause() {
   .domain([9, 0])
   .interpolator(d3.interpolateViridis);
   var height = 500;
-  var width = 960;
+  var width = 1000;
   var margin = ({top: 30, right: 0, bottom: 40, left: 40});
   var raw_data = [
     {name: "Scott", value: 9},
@@ -273,7 +278,7 @@ function generateLongestPause() {
     {name: "Hiddleston", value: 3}
   ];
   var data = Object.assign(raw_data, ({name, value}) => ({name: name, value: +value})).sort((a, b) => d3.descending(a.value, b.value))
-  console.log(data)
+
   var x = d3.scaleBand()
     .domain(d3.range(data.length))
     .range([margin.left, width - margin.right])
@@ -295,7 +300,7 @@ function generateLongestPause() {
     .call(d3.axisLeft(y).ticks(null, data.format))
     .call(g => g.select(".domain").remove())
     .call(g => g.append("text")
-        .attr("x", -margin.left)
+        .attr("x", - margin.left)
         .attr("y", 10)
         .attr("fill", "currentColor")
         .attr("text-anchor", "start")
@@ -347,4 +352,91 @@ function generateLongestPause() {
           .style("text-anchor", "middle")
           .text("Duration (Seconds)");
 
+}
+function generateMedianRMS() {
+  var cScale = d3.scaleSequential()
+    .domain([-55, -15])
+    .interpolator(d3.interpolateMagma);
+  var height = 500;
+  var width = 970;
+  var margin = ({top: 30, right: 0, bottom: 40, left: 40});
+  var raw_data = [
+    {name: "Glover", value: -19.23048723},
+    {name: "Hiddleston", value: -38.23283408},
+    {name: "Lester", value: -39.5096787},
+    {name: "Hawke", value: -39.57376455},
+    {name: "Cumberbatch", value: -40.54824076},
+    {name: "Branagh", value: -41.50606721},
+    {name: "Essiedu", value: -43.26464449},
+    {name: "Scott", value: -49.50380497}
+  ];
+  var data = Object.assign(raw_data, ({name, value}) => ({name: name, value: +value})).sort((a, b) => d3.descending(a.value, b.value))
+  var x = d3.scaleBand()
+    .domain(d3.range(data.length))
+    .range([margin.left, width - margin.right])
+    .padding(0.1);
+  var y = d3.scaleLinear()
+    .domain([-55, 0]).nice()
+    .range([height - margin.top, margin.bottom]);
+  var xAxis = g => g
+    .attr("transform", `translate(5,${height - margin.bottom})`)
+    .style("font-size", "13px")
+    .style("font-family", "PT Sans")
+    .call(d3.axisBottom(x).tickFormat(i => data[i].name).tickSizeOuter(0));
+  var yAxis = g => g
+    .attr("transform", `translate(45,-10)`)
+    .style("font-family", "PT Sans")
+    .call(d3.axisLeft(y).ticks(null, data.format))
+    .call(g => g.select(".domain").remove())
+    .call(g => g.append("text")
+        .attr("x", -margin.left)
+        .attr("y", 15)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text(data.y));
+
+  const svg = d3.select("#volume_chart2")
+    .attr("viewBox", [0, 0, 990, 505]);
+
+        svg.append("g")
+          .selectAll("rect")
+          .data(data)
+          .join("rect")
+            .attr("x", (d, i) => x(i))
+            .attr("y", d => margin.top)
+            .attr("height", d => y(d.value))
+            .attr("width", x.bandwidth())
+            .attr("fill", d => cScale(d.value));
+
+        svg.append("g")
+            .call(xAxis);
+
+        svg.append("g")
+            .call(yAxis);
+          svg.append("text")
+          .attr("x", width / 2 )
+          .attr("y", 23)
+          .style("font-size", "30px")
+          .style("font-weight", "bold")
+          .style("font-family", "PT Sans")
+          .style("text-anchor", "middle")
+          .text("Median RMS Level Per Actor");
+
+        svg.append("text")
+          .attr("x", width / 2 )
+          .attr("y", 498)
+          .style("font-size", "20px")
+          .style("font-family", "PT Sans")
+          .style("text-anchor", "middle")
+          .text("Actor");
+
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", `0 – ${margin.left}`)
+          .attr("x", -245)
+          .attr("dy", "0.75em")
+          .style("font-size", "20px")
+          .style("font-family", "PT Sans")
+          .style("text-anchor", "middle")
+          .text("Median RMS Level");
 }

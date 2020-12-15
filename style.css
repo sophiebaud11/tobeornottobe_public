@@ -1,7 +1,7 @@
 body {
   min-width: 100vw;
   margin: 0;
-  height: 1000vh;
+  height: 1500vh;
 }
 section {
   width: 100%;
@@ -40,6 +40,9 @@ section {
    text-decoration:none;
    cursor:pointer;
 }
+#nav a:active {
+  color: #A3C4BC;
+}
 
 #title {
   background-color: white;
@@ -66,7 +69,7 @@ section {
   text-align: center;
   font-size: 40px;
   color: black;
-  margin-top: 25%;
+  margin-top: 20%;
   margin-bottom: 0%;
 }
 .titletext {
@@ -74,11 +77,11 @@ section {
   text-align: center;
   font-size: 40px;
   color: black;
-  margin-top: 5%;
   position: sticky;
   z-index: 1;
   background-color: white;
   top:5vh;
+  padding-top: 1.5vh;
 }
 .titletext2 {
   font-family: Vollkorn;
@@ -110,6 +113,17 @@ section {
   position: absolute;
   border-top: 250px solid #14213D;
 }
+#corner4 {
+  width: 0;
+  height: 0;
+  border-bottom: 250px solid transparent;
+  border-right: 250px solid transparent;
+  top: 0vh;
+  left: 0vh;
+  position: absolute;
+  z-index: 2;
+  border-top: 250px solid #14213D;
+}
 #corner1 {
   width: 0;
   height: 0;
@@ -120,7 +134,29 @@ section {
   position: absolute;
   border-top: 300px solid #A3C4BC;
 }
+#corner5 {
+  width: 0;
+  height: 0;
+  border-bottom: 300px solid transparent;
+  border-right: 300px solid transparent;
+  top: 0vh;
+  left: 0vh;
+  position: absolute;
+  z-index: 2;
+  border-top: 300px solid #A3C4BC;
+}
 #corner2 {
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-bottom: 250px solid #14213D;
+  transform: rotate(0deg);
+  bottom: 0vh;
+  right: 0vh;
+  position: absolute;
+  border-top: 250px solid transparent;
+}
+#corner6 {
   width: 0;
   height: 0;
   border-left: 250px solid transparent;
@@ -141,17 +177,22 @@ section {
   position: absolute;
   border-top: 300px solid transparent;
 }
+#corner7 {
+  width: 0;
+  height: 0;
+  border-left: 300px solid transparent;
+  border-bottom: 300px solid #A3C4BC;
+  bottom: 0vh;
+  right: 0vh;
+  position: absolute;
+  border-top: 300px solid transparent;
+}
+
 #intropage1 {
   top: 100vh;
   z-index: 0;
   position: absolute;
 }
-/* #intropage1 .titletext {
-  position: sticky;
-  z-index: 1;
-  background-color: white;
-  top:5vh;
-} */
 #intro_circles {
   margin-left: auto;
   margin-right: auto;
@@ -163,14 +204,6 @@ section {
   z-index: 0;
   position: absolute;
 }
-/* #intropage2 .titletext {
-  margin-bottom: 0;
-  position: sticky;
-  z-index: 1;
-  background-color: white;
-  top:5vh;
-
-} */
 #performance_circles {
   display: block;
   margin-left: auto;
@@ -183,12 +216,6 @@ section {
   z-index: 0;
   position: absolute;
 }
-/* #demo1 .titletext {
-  position: sticky;
-  z-index: 1;
-  background-color: white;
-  top:5vh;
-} */
 #first_line {
   display: block;
   margin-left: auto;
@@ -243,6 +270,21 @@ section {
   font-weight: 700;
   position: absolute;
 }
+.generaltext3 {
+  font-size: 20px;
+  font-family: PT Sans;
+  text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6vh;
+  padding-top: 3%;
+  position: sticky;
+  top: 5%;
+  background-color: white;
+  width: 80%;
+}
+
 #pauses {
   display: block;
   margin-left: auto;
@@ -253,7 +295,7 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 75%;
   padding: 5%;
 }
 #speed3 {
@@ -262,18 +304,11 @@ section {
   font-weight: 700;
   position: absolute;
 }
-#speed3 .generaltext2 {
-  padding-top: 3%;
-  position: sticky;
-  top: 5%;
-  background-color: white;
-}
 #pauses3 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 65%;
-  padding: 5%;
+  width: 70%;
 }
 #speed4 {
   top: 900vh;
@@ -281,9 +316,46 @@ section {
   font-weight: 700;
   position: absolute;
 }
-#speed4 .generaltext2 {
-  padding-top: 3%;
-  position: sticky;
-  top: 5%;
-  background-color: white;
+#speed5 {
+  top: 1000vh;
+  z-index: 0;
+  font-weight: 700;
+  position: absolute;
+}
+#volume1 {
+  top: 1100vh;
+  z-index: 0;
+  position: absolute;
+}
+.comment {
+  width: 12%;
+  float: left;
+  margin-left: 12%;
+  margin-top: 5%;
+  text-align: center;
+}
+#volume2 {
+  top: 1200vh;
+  z-index: 0;
+  position: absolute;
+}
+#loudest_lines {
+  display: block;
+  margin-left: auto;
+  padding-left: 5%;
+  margin-right: auto;
+  width: 70%;
+}
+#volume3 {
+  top: 1300vh;
+  z-index: 0;
+  position: absolute;
+}
+.so_what {
+  top: 1400vh;
+  z-index: 0;
+  position: absolute;
+}
+.so_what #titletext {
+  width: 70%;
 }
