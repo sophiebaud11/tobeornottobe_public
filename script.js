@@ -45,7 +45,8 @@ function generateFullVolumeGraph () {
     for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
     return d;
   }
-  var data = d3.csv("linegraph_vol.csv".text(), type);
+  var data = d3.csv("linegraph_vol.csv");
+  console.log(data)
   var actors = data.columns.slice(1).map(function(timestamp) {
     return {
       actor: timestamp,
