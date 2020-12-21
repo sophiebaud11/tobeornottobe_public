@@ -32,147 +32,152 @@ function growShrinkCorners() {
     })};
   };
 function generateFullVolumeGraph () {
-  var margin = ({top: 30, right: 40, bottom: 30, left: 40});
-  var height = 500;
-  var width = 960;
-  var x = d3.scaleLinear().range([0, 800]);
-  var y = d3.scaleLinear().range([400, 0]);
-  var z = d3.scaleOrdinal(d3.schemeCategory10);
-  var line = d3.line()
-    .x(function(d) { return x(d.timestamp); })
-    .y(function(d) { return y(d.mean_rms); });
-  function type (d, _, columns) {
-    for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
-    return d;
-  }
-  var data = d3.csv("linegraph_vol.csv");
-  console.log(data)
-  var actors = data.columns.slice(1).map(function(timestamp) {
-    return {
-      actor: timestamp,
-      values: data.map(function(d) {
-        return {timestamp: d.timestamp, mean_rms: d[timestamp]};
-      })
-    }});
-  var actors_list = data.columns.slice(1);
-  x.domain([1, 234]);
-  y.domain([
-    d3.min(actors, function(c) { return d3.min(c.values, function(d) { return d.mean_rms; }); }),
-    d3.max(actors, function(c) { return d3.max(c.values, function(d) { return d.mean_rms; }); })
-  ]);
-  z.domain(actors.map(function(c) { return c.actor; }));
-  var xAxis = g => g
-    .attr("transform", "translate(" + margin.left + ", 470)")
-    .style("font-family", "PT Sans")
-    .style("font-size", "12")
-    .call(d3.axisBottom(x).ticks(null, data.format));
-  var yAxis = g => g
-    .attr("transform", `translate(${margin.left},70)`)
-    .style("font-family", "PT Sans")
-    .call(d3.axisLeft(y).ticks(null, data.format));
-
-  const svg = d3.create("svg")
-         .attr("viewBox", [0, 0, 960, 500]);
-
-    svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    svg.append("g")
-        .call(xAxis)
-
-    svg.append("g")
-        .call(yAxis)
-
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", `0 – margin.left`)
-      .attr("x", -250)
-      .attr("dy", "0.7em")
-      .style("font-size", "15")
+  var file = "https://raw.githubusercontent.com/sophiebaud11/tobeornottobe_public/main/linegraph_vol.csv";
+  const data = d3.csv(file).then(function(data) {
+    var margin = ({top: 30, right: 40, bottom: 30, left: 40});
+    var height = 500;
+    var width = 960;
+    var x = d3.scaleLinear().range([0, 800]);
+    var y = d3.scaleLinear().range([400, 0]);
+    var z = d3.scaleOrdinal(d3.schemeCategory10);
+    var line = d3.line()
+      .defined(d => !isNaN(d.mean_rms))
+      .x(function(d) { return x(d.timestamp); })
+      .y(function(d) { return y(d.mean_rms); });
+    function type(d, _, columns) {
+      for (var i = 1, n = d.columns.length, c; i < n; ++i) d[c = d.columns[i]] = +d[c];
+      return d;
+    };
+    var actors = type(data).columns.slice(1).map(function(timestamp) {
+      return {
+        actor: timestamp,
+        values: data.map(function(d) {
+          return {timestamp: Number(d.timestamp), mean_rms: Number(d[timestamp])};
+        })
+      }});
+    var actors_list = data.columns.slice(1);
+    console.log(actors)
+    x.domain([1, 234]);
+    y.domain([
+      d3.min(actors, function(c) { return d3.min(c.values, function(d) { return d.mean_rms; }); }),
+      d3.max(actors, function(c) { return d3.max(c.values, function(d) { return d.mean_rms; }); })
+    ]);
+    z.domain(actors.map(function(c) { return c.actor; }));
+    var xAxis = g => g
+      .attr("transform", "translate(" + margin.left + ", 470)")
       .style("font-family", "PT Sans")
-      .style("text-anchor", "middle")
-      .text("Mean RMS Level");
+      .style("font-size", "12")
+      .call(d3.axisBottom(x).ticks(null, data.format));
+    var yAxis = g => g
+      .attr("transform", "translate(" + margin.left + ",70)")
+      .style("font-family", "PT Sans")
+      .call(d3.axisLeft(y).ticks(null, data.format));
 
-     svg.append("text")
-        .attr("x", width / 2 )
-        .attr("y", 20)
-        .style("font-size", "20")
-        .style("font-weight", "bold")
+    const svg = d3.select("#full_volume_chart")
+           .attr("viewBox", [0, 0, 960, 500]);
+
+      svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      svg.append("g")
+          .call(xAxis)
+
+      svg.append("g")
+          .call(yAxis)
+
+      svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", `0 - margin.left`)
+        .attr("x", -250)
+        .attr("dy", "0.7em")
+        .style("font-size", "15")
         .style("font-family", "PT Sans")
         .style("text-anchor", "middle")
-        .text("Volume Throughout the Soliloquy");
+        .text("Mean RMS Level");
 
-    svg.append("text")
-      .attr("x", width / 2 )
-      .attr("y", 500)
-      .style("font-size", "15")
-      .style("font-family", "PT Sans")
-      .style("text-anchor", "middle")
-      .text("Second");
+       svg.append("text")
+          .attr("x", width / 2 )
+          .attr("y", 20)
+          .style("font-size", "20")
+          .style("font-weight", "bold")
+          .style("font-family", "PT Sans")
+          .style("text-anchor", "middle")
+          .text("Volume Throughout the Soliloquy");
 
-    var actorLines = svg.selectAll(".actor")
-        .data(actors)
-        .enter().append("g")
-          .attr("class", "actor");
-
-    actorLines.append("path")
-        .attr("class", "line")
-        .attr("id", function(d) {return d.actor + "line"})
-        .attr("transform", "translate(" + margin.left + ",70)")
-        .attr("d", function(d) { return line(d.values); })
-        .style("stroke", function(d) { return z(d.actor); })
-        .style("fill","none")
-
-    var size = 20
-    svg.selectAll("lineLegend")
-      .data(actors)
-      .enter()
-      .append("circle")
-        .attr("cx", width - 110)
-        .attr("cy", function(d,i){ return 70 + i*(size+5)})
-        .attr("r", size / 2)
-        .style("fill", function(d){ return z(d.actor)})
-        .attr("class", "circle")
-        .attr("id", function(d) {return d.actor + "circle"})
-
-
-
-    svg.selectAll("circle").on("click", function() {
-      d3.select(this).classed("active", d3.select(this).classed("active") ? false : true);
-      console.log(d3.select(this).classed("active"));
-  		var thisID = "#" + d3.select(this).attr("id");
-  		console.log(thisID);
-      var lineID = thisID.replace("circle", "line")
-      console.log(lineID);
-      if (d3.select(this).classed("active")) {
-        d3.select(lineID).style("stroke-width", "2");
-        d3.selectAll(".line:not(lineID)").style("opacity", "0.25");
-        d3.selectAll(".circle:not(thisID)").style("opacity", "0.25");
-        d3.select(lineID).style("opacity", "1");
-        d3.select(thisID).style("opacity", "1");
-      }
-      else {
-        d3.select(lineID).style("stroke-width", "1");
-        d3.selectAll(".line").style("opacity", "1");
-        d3.selectAll(".circle").style("opacity", "1");
-      }
-  	});
-
-
-
-
-    svg.selectAll("mylabels")
-      .data(actors)
-      .enter()
-      .append("text")
-        .attr("x", width - 90)
-        .attr("y", function(d,i){ return 71 + i*(size+5)})
-        .text(function(d) {return d.actor})
-        .attr("text-anchor", "left")
-        .style("alignment-baseline", "middle")
+      svg.append("text")
+        .attr("x", width / 2 )
+        .attr("y", 500)
         .style("font-size", "15")
-        .style("font-family", "PT Sans");
+        .style("font-family", "PT Sans")
+        .style("text-anchor", "middle")
+        .text("Second");
 
+      var actorLines = svg.selectAll(".actor")
+          .data(actors)
+          .enter().append("g")
+            .attr("class", "actor");
+
+      actorLines.append("path")
+          .attr("class", "line")
+          .attr("id", function(d) {return d.actor + "line"})
+          .attr("transform", "translate(" + margin.left + ",70)")
+          .attr("d", function(d) { return line(d.values); })
+          .style("stroke", function(d) { return z(d.actor); })
+          .style("fill","none")
+
+      var size = 20
+      svg.selectAll("lineLegend")
+        .data(actors)
+        .enter()
+        .append("circle")
+          .attr("cx", width - 110)
+          .attr("cy", function(d,i){ return 70 + i*(size+5)})
+          .attr("r", size / 2)
+          .style("fill", function(d){ return z(d.actor)})
+          .attr("class", "circle")
+          .attr("id", function(d) {return d.actor + "circle"})
+
+
+
+      svg.selectAll("circle").on("click", function() {
+        d3.select(this).classed("active", d3.select(this).classed("active") ? false : true);
+        console.log(d3.select(this).classed("active"));
+        var thisID = "#" + d3.select(this).attr("id");
+        console.log(thisID);
+        var lineID = thisID.replace("circle", "line")
+        console.log(lineID);
+        if (d3.select(this).classed("active")) {
+          d3.select(lineID).style("stroke-width", "2");
+          d3.selectAll(".line:not(lineID)").style("opacity", "0.25");
+          d3.selectAll(".circle:not(thisID)").style("opacity", "0.25");
+          d3.select(lineID).style("opacity", "1");
+          d3.select(thisID).style("opacity", "1");
+        }
+        else {
+          d3.select(lineID).style("stroke-width", "1");
+          d3.selectAll(".line").style("opacity", "1");
+          d3.selectAll(".circle").style("opacity", "1");
+        }
+      });
+
+
+
+
+      svg.selectAll("mylabels")
+        .data(actors)
+        .enter()
+        .append("text")
+          .attr("x", width - 90)
+          .attr("y", function(d,i){ return 71 + i*(size+5)})
+          .text(function(d) {return d.actor})
+          .attr("text-anchor", "left")
+          .style("alignment-baseline", "middle")
+          .style("font-size", "15")
+          .style("font-family", "PT Sans");
+
+      // return svg.node()
+
+  });
 }
 
 
