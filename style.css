@@ -243,8 +243,8 @@ section {
   float: right;
   position: sticky;
   top: 25%;
-  right: 5px;
-  width: 55%;
+  right: 7%;
+  width: 45%;
 }
 #demo3 {
   top: 500vh;
@@ -261,7 +261,7 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 45%;
   padding: 5px;
 }
 #speed2 {
@@ -344,7 +344,7 @@ section {
   margin-left: auto;
   padding-left: 5%;
   margin-right: auto;
-  width: 70%;
+  width: 65%;
 }
 #volume3 {
   top: 1300vh;
