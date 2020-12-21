@@ -94,7 +94,7 @@ section {
   color: #912F56;
 }
 .generaltext2 {
-  font-size: 20px;
+  font-size: 18px;
   font-family: PT Sans;
   text-align: center;
   width: 75%;
@@ -347,12 +347,15 @@ section {
   width: 65%;
 }
 #volume3 {
+  position: absolute;
   top: 1300vh;
   z-index: 0;
-  position: absolute;
+
 }
 .so_what {
   top: 1400vh;
+  /* background-color: white; */
+  /* margin-top: 0%; */
   z-index: 0;
   position: absolute;
 }
