@@ -18,8 +18,8 @@ function growShrinkCorners() {
       }
 
     })};
-  if (scrollPercent < -12 && scrollPercent > -13) {
-    var neg_scrollPercent = 1-(13+((pageHeight - window.scrollY)/pageHeight));
+  if (scrollPercent < -11 && scrollPercent > -12) {
+    var neg_scrollPercent = 1-(12+((pageHeight - window.scrollY)/pageHeight));
     console.log("hi")
     console.log(neg_scrollPercent)
     Array.prototype.forEach.call(corners, function(corner) {
@@ -93,7 +93,7 @@ function generateFullVolumeGraph () {
         .style("font-size", "15")
         .style("font-family", "PT Sans")
         .style("text-anchor", "middle")
-        .text("Mean RMS Level");
+        .text("RMS Level");
 
        svg.append("text")
           .attr("x", width / 2 )
@@ -258,7 +258,7 @@ function generateVolumeGraph() {
       .style("font-size", "20px")
       .style("font-family", "PT Sans")
       .style("text-anchor", "middle")
-      .text("Mean RMS Level");
+      .text("RMS Level");
 
      svg.append("text")
         .attr("x", width / 2 )
@@ -294,7 +294,7 @@ function generateVolumeGraph() {
       .data(actors)
       .enter()
       .append("circle")
-        .attr("cx", width - 20)
+        .attr("cx", width - 15)
         .attr("cy", function(d,i){ return 70 + i*(size+5)})
         .attr("r", size / 2)
         .style("fill", function(d){ return z(d.id)})
@@ -564,7 +564,7 @@ function generateMedianRMS() {
             .call(yAxis);
           svg.append("text")
           .attr("x", width / 2 )
-          .attr("y", 23)
+          .attr("y", 22)
           .style("font-size", "30px")
           .style("font-weight", "bold")
           .style("font-family", "PT Sans")

@@ -18,7 +18,7 @@
       <li><a href="#speed_analysis" id="speedlink">speed</a></li>
       <li><a href="#volume_analysis" id="volumelink">volume</a></li>
       <li><a href="#conclusions" id="conclusionslink">conclusions</a></li>
-      <li><a href="#methods" id="methodslink">methods</a></li>
+      <li><a href="#methodology" id="methodslink">methods</a></li>
     </ul>
     <a name="title">
     <section id="title" >
@@ -37,30 +37,29 @@
     <section class="intro" name="intro" id="intropage1">
       <a id="introduction">
       <h1 class="titletext">The Data</h1>
-      <p class="generaltext">We analyzed the audio of 8 performances of Hamlet’s Act III Scene I soliloquy.</p>
-      <img id="intro_circles" src="intro_circles.png" alt="actors_images">
+      <p class="generaltext">We analyzed audio from 8 performances of Hamlet’s Act III Scene I soliloquy.</p>
+      <img id="intro_circles" src="intro_circles.png" alt="images of each actor and their names: hawke, essiedu, cumberbatch, branagh, hiddleston, glover, scott, lester.">
       <p class="generaltext">From this analysis, we located aspects of each performance that could shed light on the text as a whole: <span class="purple">speed</span> and <span class="purple">volume</span>.</p>
     </section>
     <section class="intro" id="intropage2">
       <h1 class="titletext">The Performances</h1>
-      <p class="generaltext">Let’s get to know these performances better.  Three of them (Essiedu, Cumberbatch, and Scott) are stage performances, three are audio recordings (Hiddleston, Glover, and Lester), and two are film scenes (Hawke and Branagh).</p>
+      <p class="generaltext">Let’s get to know these performances better.  Three of them (Essiedu, Cumberbatch, and Scott) are stage performances, two are audio recordings (Hiddleston and Glover), and three are film clips (Hawke, Lester, and Branagh).</p>
       <img id="performance_circles" src="performance_circles.png" alt="actors_images">
     </section>
     </a>
     <section class="demo" name="demo" id="demo1">
       <a id="firstline_demo">
       <h1 class="titletext">The First Line</h1>
-      <p class="generaltext">What can we actually learn about the soliloquy from these performances?  Let’s demo this analysis using the soliloquy’s incredibly famous first line:</p>
+      <p class="generaltext">What can we learn about the soliloquy from the audio of these performances?  Let’s demo this analysis using the soliloquy’s incredibly famous first line:</p>
       <img id="first_line" src="first_line.png" alt="first_line">
     </section>
     <section class="demo" id="demo2">
       <h1 class="titletext">The First Line</h1>
       <div class="lefttext">
         <h2 class="titletext2">Speed</h2>
-        <p class="generaltext">This graph shows how many seconds each actor spends on the first line. Note the range of this data: Andrew Scott spends around 11 seconds on the first ten words, but Devon Glover,  Ethan Hawke, and Tom Hiddleston all spend around 3.</p>
-        <p class="generaltext">From this, we can learn something about each actor's interpretations of the opening question, which drives the rest of the soliloquy.</p>
-        <p class="generaltext">Those who give it more time emphasize the challenge of solving the question, because they must take pauses or draw out words, which creates a sense of measured, slow contemplation.</p>
-        <p class="generaltext">However, the actors who spend less time speaking the opening lines avoid pauses or drawn-out words, which has the effect of instilling urgency and building momentum in the opening line.</p>
+        <p class="generaltext2">This graph shows how many seconds each actor takes to speak the first line. Note the range of this data: Andrew Scott takes around 11 seconds, but Devon Glover,  Ethan Hawke, and Tom Hiddleston all spend around 3.</p>
+        <p class="generaltext2">Actors who spend more time on the opening line emphasize the challenge of solving its central question. Pauses and drawn-out words create a sense of measured, slow contemplation.</p>
+        <p class="generaltext2">Conversely, the actors who spend less time speaking the opening lines instill them with urgency and build momentum for the rest of the speech.</p>
       </div>
       <div class="rightgraph">
         <svg id="duration_chart">
@@ -74,9 +73,9 @@
       <h1 class="titletext">The First Line</h1>
       <div class="lefttext">
         <h2 class="titletext2">Volume</h2>
-        <p class="generaltext">This graph visualizes the volume of each actor’s audio file during the first 10 words. Most actors are clustered in volume around the -35 to -45 mean RMS level point, but there are two primary outliers: Branagh and Glover.</p>
-        <p class="generaltext">Glover is louder than the rest in large part because of the medium of his performance (music, which requires a backing track that increases the volume); conversely, Branagh also takes advantage of his cinematic medium, speaking the first line very quietly. He can do this because he need not worry about projecting his voice across a theater like Scott or Essiedu—this allows him to practically whisper the first line, emphasizing its introspective quality.</p>
-        <p class="generaltext">Also interesting is the dip in Hiddleston’s volume around the word “that”—this indicates that he took a long pause before saying the last four words that registered as near silence in our analysis of the audio data.</p>
+        <p class="generaltext2">This graph visualizes the volume of each actor’s audio file during the first 10 words. Most of the actors are clustered between RMS levels of -35 and -45, but there are two primary outliers: Branagh and Glover.</p>
+        <p class="generaltext2">Glover is louder than the rest in large part because of the medium of his performance: music, which requires a backing track that ups the volume. Branagh also takes advantage of his medium: cinema. He doesn't need to worry about projecting his voice across a theater like Scott or Essiedu—this allows him to practically whisper the first line, emphasizing its introspective quality.</p>
+        <p class="generaltext2">Also interesting is the dip in Hiddleston’s volume around the word “that”—this indicates that he took a pause before saying the last four words that registered as near silence in our analysis of the audio data.</p>
       </div>
       <div class="rightgraph">
         <svg id="volume_chart">
@@ -90,8 +89,8 @@
     <section class="speed" name="speed" id="speed1">
       <a id="speed_analysis">
       <h1 class="titletext">Speed</h1>
-      <p class="generaltext2">One key piece of data we get from analyzing the audio performances is timestamps: on which second does each word fall?</p>
-      <p class="generaltext2">From this, we can learn quite a lot. One revealing metric is <span class="purple">pause lengths</span>—which actor takes the longest pause, and where does he take them?</p>
+      <p class="generaltext2">Now that we've demoed how each metric can inform an analysis of the performances, let's apply that to the speech as a whole beginning with a focus on one key piece of data: <span class="purple">timestamps</span>.</p>
+      <p class="generaltext2">From timestamps, we can learn quite a lot. One aspect of the speech they enable us to isolate is <span class="purple">pause lengths</span>—where and when does each actor takes their longest pause?</p>
       <img src="speed_cmt.svg" class="comment" alt="speed graph comment">
       <div class="centergraph">
         <svg id="longest_pause">
@@ -106,23 +105,19 @@
       <img id="pauses" src="pauses1.svg" alt="pauses_in_speech">
     </section>
     <section class="speed" id="speed3">
-      <p class="generaltext3">A closer look at these pauses reveals their effects on how the actors interpret certain lines.</p>
+      <p class="generaltext3">A closer look at these pauses reveals how they reflect the actors' interpretations of certain lines.</p>
       <img id="pauses2" src="pauses2.svg" alt="pauses_closer_look">
     </section>
     <section class="speed" id="speed4">
       <p class="generaltext3">Onto the next section...</p>
       <img id="pauses3" src="pauses3.svg" alt="pauses_closer_look">
     </section>
-    <section class="speed" id="speed5">
-      <h1 class="titletext">Conclusion</h1>
-      <p class=generaltext>~write conclusion~ and add fun graphics!</p>
-    </section>
     </a>
     <section class="volume" id="volume1">
       <a id="volume_analysis">
         <h1 class="titletext">Volume</h1>
-        <p class="generaltext">Another data point we can glean from audio files is loudness. The <span class="purple">RMS level</span> approximates loudness,  and the median RMS level for each actor’s performance is visualized below—the lower the number,  the lower the estimated loudness!</p>
-        <p class="generaltext">This can highlight each actors’ medium, the pauses they take, the lines they emphasize with increased loudness,  and more.</p>
+        <p class="generaltext">Another data point we can glean from audio files is volume. The <span class="purple">RMS level</span> approximates loudness,  and the median RMS level for each actor’s performance is visualized below—the lower the number,  the lower the estimated loudness!</p>
+        <p class="generaltext">This can highlight each actors’ medium, the pauses they take, the lines they emphasize with increased volume, and more.</p>
         <img src="volume_cmt.svg" class="comment" alt="volume graph comment">
         <div class="centergraph">
           <svg id="volume_chart2">
@@ -137,12 +132,11 @@
       <img src="loudest_lines.svg" alt="loudest lines graphic" id="loudest_lines">
     </section>
     <section class="volume" id="volume3">
-      <h1 class="titletext">Volume Over Time</h1>
+      <p class="generaltext3">Now, let's look at how the volume data changes over time.</p>
       <div class="lefttext">
-        <h2 class="titletext2">Volume</h2>
-        <p class="generaltext2">This graph reveals all sorts of insights about each actor's performance, and how it changes over the course of the soliloquy. Toggle it to isolate and track the data for each actor!</p>
-        <p class="generaltext2">Hiddleston's graph may be the most distinctive—it's marked by constant changes from nearly silent to louder than most other actors. This is reflective of his take on the rhythm of the speech; he takes frequent (but short) pauses, trading the spontaneity that other actors embrace for steady pauses at punctuation marks.</p>
-        <p class="generaltext2">A good counter example to this is Essiedu. His graph is characterized by peaks and valleys that are less regular, which indicates his commitment to an emotional take on the speech rather than following the written rhythm and punctuation to the letter.</p>
+        <p class="generaltext2">This graph visualizes the actors' volumes over the course of the soliloquy. <span class="purple">Toggle the legend</span> to isolate and track each actor!</p>
+        <p class="generaltext2">Hiddleston's graph is the most distinctive—it's marked by constant changes from near silence to volumes that are louder than most other actors. This highlights how he takes frequent, short pauses, trading the spontaneity that other actors embrace for steady stops at punctuation marks.</p>
+        <p class="generaltext2">A good counter example to this is Essiedu. His graph is characterized by less regular peaks and valleys, which indicates his commitment to an emotional take on the speech—rather than a verbatim adherence to the written rhythm and punctuation.</p>
       </div>
       <div class="rightgraph">
         <svg id="full_volume_chart">
@@ -160,14 +154,20 @@
       <svg class="corner" id="corner4"></svg>
     </div>
     <h1 class="titletext">So What?</h1>
-    <p class="generaltext">write! and add streamgraph</p>
-    <!-- for this section, maybe run thru everything we've learned (& perhaps delete the conclusion pages on volume & speed)-->
-    <!-- end with discussing what implications this could have for conducting literary or theatrical analyses virtually in the future -->
-    <!-- also, style-wise, space things out, decrease image & text size -->
+    <p class="generaltext">Measuring, analyzing, and visualizing audio data from theatrical performances can highlight numerous insights: how medium affects performance, where common moments of emphasis lie, and different approaches to rhythm and pacing, to name a few.</p>
+    <p class="generaltext">Focusing on quantitative metrics allowed us to consistently (and qualitatively!) compare lots of different performances. This expedites the process of studying multiple texts or subjects—and shows how we can benefit from bridging creative and technical modes of analysis.</p>
+    <img src="shakes.svg" alt="picture of shakespeare with a speech bubble thanking you for reading!" id="shakes">
     <div class="corners2">
       <svg class="corner" id="corner7"></svg>
       <svg class="corner" id="corner6"></svg>
     </div>
+  </section>
+  <section class="methods">
+    <a id="methodology">
+      <h1 class="titletext">Methods</h1>
+      <p class="generaltext">To analyze the audio files of these performances, I used two main softwares: the DeepAffects API speech-to-text function for speed analysis, and FFMPEG to get RMS values for each frame of the audio for the volume analysis. Next, I used R Studio to correct errors in the DeepAffects audio transcription of the soliloquy, and to approximate the average RMS value per second. Given these approximations, timestamps and RMS levels may be slightly off from their actual values. The website was designed with Figma, the graphs were made with <a class="purple" href="https://observablehq.com/@sophiebaud11">D3.js</a>, and the website was coded with HTML, CSS, and JavaScript.</p>
+      <p class="generaltext">Made by <a class="purple" href="https://github.com/sophiebaud11">Sophie Bauder</a>. Thanks to everyone at the Learning Lab at the Derek Bok Center for Teaching and Learning at Harvard University for your support and assistance!</p>
+  </a>
   </section>
   </body>
 </html>

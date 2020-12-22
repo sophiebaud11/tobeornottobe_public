@@ -1,7 +1,7 @@
 body {
   min-width: 100vw;
   margin: 0;
-  height: 1500vh;
+  height: 1450vh;
 }
 section {
   width: 100%;
@@ -77,11 +77,10 @@ section {
   text-align: center;
   font-size: 40px;
   color: black;
-  position: sticky;
+  /* position: sticky; */
   z-index: 1;
   background-color: white;
-  top:5vh;
-  padding-top: 1.5vh;
+  padding-top: 7vh;
 }
 .titletext2 {
   font-family: Vollkorn;
@@ -100,8 +99,6 @@ section {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6vh;
-
 }
 #corner0 {
   width: 0;
@@ -165,6 +162,7 @@ section {
   bottom: 0vh;
   right: 0vh;
   position: absolute;
+  z-index: 2;
   border-top: 250px solid transparent;
 }
 #corner3 {
@@ -185,6 +183,7 @@ section {
   bottom: 0vh;
   right: 0vh;
   position: absolute;
+  z-index: 2;
   border-top: 300px solid transparent;
 }
 
@@ -196,7 +195,8 @@ section {
 #intro_circles {
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 70%;
+  margin-bottom: 2%;
   display: block;
 }
 #intropage2 {
@@ -208,7 +208,7 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 65%;
   padding: 5px;
 }
 #demo1 {
@@ -220,7 +220,7 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 55%;
   padding: 5px;
 }
 #demo2 {
@@ -232,18 +232,18 @@ section {
   left: 0;
   float: left;
   width: 45%;
-  height: 85vh;
+  height: 75vh;
   overflow-y: scroll;
+  margin-bottom: 3vh;
 }
-.demo .generaltext {
-  font-size: 17px;
-
+#volume3 .lefttext {
+  margin-top: 5%;
 }
 .rightgraph {
   float: right;
   position: sticky;
-  top: 25%;
-  right: 7%;
+  margin-top: 4%;
+  right: 2%;
   width: 50%;
 }
 #demo3 {
@@ -279,7 +279,7 @@ section {
   margin-right: auto;
   margin-top: 6vh;
   padding-top: 3%;
-  position: sticky;
+  /* position: sticky; */
   top: 5%;
   background-color: white;
   width: 80%;
@@ -316,14 +316,8 @@ section {
   font-weight: 700;
   position: absolute;
 }
-#speed5 {
-  top: 1000vh;
-  z-index: 0;
-  font-weight: 700;
-  position: absolute;
-}
 #volume1 {
-  top: 1100vh;
+  top: 1000vh;
   z-index: 0;
   position: absolute;
 }
@@ -335,7 +329,7 @@ section {
   text-align: center;
 }
 #volume2 {
-  top: 1200vh;
+  top: 1100vh;
   z-index: 0;
   position: absolute;
 }
@@ -348,17 +342,51 @@ section {
 }
 #volume3 {
   position: absolute;
-  top: 1300vh;
+  top: 1200vh;
   z-index: 0;
-
 }
+#volume3 .titletext {
+  margin-bottom: 15px;
+}
+#demo3 .titletext {
+  margin-bottom: 15px;
+}
+
 .so_what {
-  top: 1400vh;
+  top: 1300vh;
   /* background-color: white; */
   /* margin-top: 0%; */
   z-index: 0;
   position: absolute;
 }
-.so_what #titletext {
+.so_what .generaltext {
   width: 70%;
+  font-size: 20px;
+  font-weight: 500;
+}
+.methods {
+  top: 1400vh;
+  height: 50%;
+  z-index: 0;
+  background-color: #14213D;
+  color: #dcd9db;
+  position: absolute;
+}
+.methods .generaltext {
+  font-weight: 300;
+  font-size: 15px;
+}
+.methods .titletext {
+  background-color: #14213D;
+  font-size: 25px;
+  color: #dcd9db;
+  font-weight: 300;
+  margin-top: 0;
+}
+#shakes {
+  width: 30%;
+  margin-top: 3%;
+  display: block;
+  margin-left: 30%;
+  margin-right: 50%;
 }
